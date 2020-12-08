@@ -4,9 +4,15 @@ public class Date {
     private int _month;
     private int _year;
 
-    Date(int day, int month, int year) {
+    public void setDay(int day) {
         _day = day;
+    }
+
+    public void setMonth(int month) {
         _month = month;
+    }
+
+    public void setYear(int year) {
         _year = year;
     }
 

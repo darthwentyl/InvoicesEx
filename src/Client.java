@@ -3,8 +3,11 @@ public class Client {
     private Name _name;
     private Address _address;
 
-    Client(Name name, Address address) {
+    public void setName(Name name) {
         _name = name;
+    }
+
+    public void setAddress(Address address) {
         _address = address;
     }
 

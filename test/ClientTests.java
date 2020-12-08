@@ -6,9 +6,10 @@ class ClientTests {
 
     @Test
     void test_getters() {
-        Client client = new Client(
-                new Name(),
-                new Address());
+        Client client = new Client();
+        client.setName(new Name());
+        client.setAddress(new Address());
+        
         assertEquals(null, client.getName().getFirstName());
         assertEquals(null, client.getName().getLastName());
         assertEquals(null, client.getAddress().getStreet());
