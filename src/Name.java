@@ -18,4 +18,8 @@ public class Name {
     public String getLastName() {
         return _lastName;
     }
+
+    public String toString() {
+        return new String(_firstName + " " + _lastName);
+    }
 }

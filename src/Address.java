@@ -45,5 +45,12 @@ public class Address {
     public int getFlatNumber() {
         return _flatNumber;
     }
-    
+
+    public String toString() {
+        return new String("\tstreet: " + _street + "\n" +
+                          "\ttown: " + _town + "\n" +
+                          "\tcountry: " + _country + "\n" +
+                          "\tbulding number: " + _buldingNumber + "\n" +
+                          "\tflat number: " + _flatNumber);
+    }
 }

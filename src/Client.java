@@ -19,4 +19,8 @@ public class Client {
         return _address;
     }
 
+    public String toString() {
+        return new String("Name: " + _name + "\n"
+                        + "Address:\n" + _address);
+    }
 }

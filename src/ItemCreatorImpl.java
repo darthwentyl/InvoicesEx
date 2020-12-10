@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ItemCreatorImpl implements ItemCreatorIfc {
     private Scanner _scanner;
-    
+
     ItemCreatorImpl() {
         _scanner = new Scanner(System.in);
     }

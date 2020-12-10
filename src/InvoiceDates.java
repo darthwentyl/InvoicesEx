@@ -18,4 +18,8 @@ public class InvoiceDates {
     public Date getDateSale() {
         return _dateSale;
     }
+
+    public String toString() {
+        return new String("\tInvoice date: " + _dateInvoice + "\n\tSale date: " + _dateSale);
+    }
 }

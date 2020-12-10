@@ -3,5 +3,5 @@ public enum PaymentType {
     CASH,
     CARD,
     TRANSFER,
-    NOT_ACK
+    NOT_ACK;
 }

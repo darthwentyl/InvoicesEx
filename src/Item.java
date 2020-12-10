@@ -16,17 +16,20 @@ public class Item {
         _cost = cost;
     }
 
-    int getCount() {
+    public int getCount() {
         return _count;
     }
 
-    String getName() {
+    public String getName() {
         return _name;
     }
 
 
-    double getCost() {
+    public double getCost() {
         return _cost;
     }
 
+    public String toString() {
+        return new String("\tProduct: " + _name + "\n\tCount: " + _count + "\n\tCost: " + _count * _cost);
+    }
 }

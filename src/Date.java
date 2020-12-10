@@ -27,4 +27,8 @@ public class Date {
     public int getYear() {
         return _year;
     }
+
+    public String toString() {
+        return new String(_day + "." + _month + "." + _year);
+    }
 }

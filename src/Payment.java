@@ -18,4 +18,8 @@ public class Payment {
     public PaymentType getPaymentType() {
         return _paymentType;
     }
+
+    public String toString() {
+        return new String("\tPayment date: " + _paymentDate + "\n\tPayment type: " + _paymentType.name());
+    }
 }

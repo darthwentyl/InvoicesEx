@@ -6,6 +6,10 @@ public class Invoice {
     private Payment _payment;
     private ItemCollection _items;
 
+    Invoice() {
+        _items = new ItemCollection();
+    }
+
     public void setId(int id) {
         _id = id;
     }
@@ -38,7 +42,7 @@ public class Invoice {
         return _invoiceDates;
     }
 
-    public Payment setPayment() {
+    public Payment getPayment() {
         return _payment;
     }
 

@@ -26,7 +26,7 @@ public class NameCreatorImpl implements NameCreatorIfc {
             System.out.print("Type " + id + " name: ");
             name = _scanner.next();
             if (name.isEmpty()) {
-                System.err.println(id + " name cannot be empty. Please type once againg.");
+                System.err.println(id + " name cannot be empty. Please type once againg.\n");
             } else {
                 break;
             }
