@@ -34,8 +34,8 @@ public class AddressCreatorImpl implements AddressCreatorIfc {
     }
 
     private boolean validate(String str, String errMsg) {
-        if (str == "") {
-            System.out.println(errMsg);
+        if (str.isEmpty()) {
+            System.err.println(errMsg);
             return false;
         }
         return true;

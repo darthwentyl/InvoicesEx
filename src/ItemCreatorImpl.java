@@ -36,7 +36,7 @@ public class ItemCreatorImpl implements ItemCreatorIfc {
         System.out.print("Type product name: ");
         while (true) {
             name = _scanner.next();
-            if (name == "") {
+            if (name.isEmpty()) {
                 System.out.println("Product name cannot be empty. Please type once againg.");
             } else {
                 break;

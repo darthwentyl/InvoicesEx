@@ -1,9 +1,16 @@
 
 public class InvoicesManager {
-    private Invoice [] _invoices;
+    private InvoiceCollection _invoices;
+
+    public InvoicesManager() {
+        _invoices = new InvoiceCollection();
+    }
 
     public void createNewInvoice() {
-        
+        InvoiceCreatorIfc creator = new InvoiceCreatorImpl(
+                new NameCreatorImpl(),
+                new AddressCreatorImpl());
+        _invoices.addInvoice(creator.createNew());
     }
 
     public void addNewPositionToExistInvoice() {
