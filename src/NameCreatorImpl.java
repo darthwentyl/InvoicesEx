@@ -1,37 +1,17 @@
 import java.util.Scanner;
 
 public class NameCreatorImpl implements NameCreatorIfc {
-    Scanner _scanner;
+    FieldCreator _fieldCreator;
 
     NameCreatorImpl() {
-        _scanner = new Scanner(System.in);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        _scanner.close();
+        _fieldCreator = new FieldCreator();
     }
 
     @Override
     public Name create() {
         Name name = new Name();
-        name.setFirstName(createName("First"));
-        name.setLastName(createName("Last"));
+        name.setFirstName(_fieldCreator.createStringField("Type first name: "));
+        name.setLastName(_fieldCreator.createStringField("Type last name: "));
         return name;
     }
-
-    private String createName(String id) {
-        String name = new String();
-        while (true) {
-            System.out.print("Type " + id + " name: ");
-            name = _scanner.next();
-            if (name.isEmpty()) {
-                System.err.println(id + " name cannot be empty. Please type once againg.\n");
-            } else {
-                break;
-            }
-        }
-        return name;
-    }
-
 }

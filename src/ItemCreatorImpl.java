@@ -1,48 +1,17 @@
-import java.util.Scanner;
 
 public class ItemCreatorImpl implements ItemCreatorIfc {
-    private Scanner _scanner;
+    private FieldCreator _fieldCreator;
 
     ItemCreatorImpl() {
-        _scanner = new Scanner(System.in);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        _scanner.close();
+        _fieldCreator = new FieldCreator();
     }
 
     @Override
      public Item create() {
         Item item = new Item();
-        item.setCount(createCount());
-        item.setName(createName());
-        item.setCost(createCost());
+        item.setName(_fieldCreator.createStringField("Type product name: "));
+        item.setCount(_fieldCreator.createNumberField("Type count: "));
+        item.setCost(_fieldCreator.createNumberField("Type cost: "));
         return item;
     }
-
-    private double createCost() {
-        System.out.print("Type cost: ");
-        return _scanner.nextDouble();
-    }
-
-    private int createCount() {
-        System.out.print("Type count: ");
-        return _scanner.nextInt();
-    }
-
-    private String createName() {
-        String name = new String();
-        System.out.print("Type product name: ");
-        while (true) {
-            name = _scanner.next();
-            if (name.isEmpty()) {
-                System.out.println("Product name cannot be empty. Please type once againg.");
-            } else {
-                break;
-            }
-        }
-        return name;
-    }
-
 }
