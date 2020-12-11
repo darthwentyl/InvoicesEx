@@ -21,6 +21,10 @@ public class InvoicesManager {
     }
 
     public void addNewPositionToExistInvoice() {
+        if (isEmpty()) {
+            return;
+        }
+
         System.out.print("Type invoice id: ");
         Invoice invoice = getInvoice();
 
@@ -32,6 +36,45 @@ public class InvoicesManager {
             System.out.print("Do you want to add new item [y/n]: ");
             yesNo = _scanner.next();
         } while (yesNo.equals("y"));
+    }
+
+    public void printInvoiceId() {
+        if (isEmpty()) {
+            return;
+        }
+
+        System.out.print("Type invoice id: ");
+        Invoice invoice = getInvoice();
+        invoice.print();
+    }
+
+    public void printInvoices() {
+        if (isEmpty()) {
+            return;
+        }
+        
+        Invoice [] invoices = _invoices.getInvoices();
+        for (int i = 0; i < invoices.length; ++i) {
+            invoices[i].print();
+        }
+    }
+
+    public void printClientInvoice() {
+        if (isEmpty()) {
+            return;
+        }
+
+        NameCreatorIfc nameCreator = new NameCreatorImpl();
+        Name name = nameCreator.create();
+        Invoice [] clientInvoices = _invoices.getClientInvoices(name);
+        if (clientInvoices == null) {
+            System.err.println("Client " + name.getFirstName() + " " + name.getLastName() + " doesn't exist!!!");
+            System.err.println("Please create client invoice using \"n\" option!!!");
+            return;
+        }
+        for (int i = 0; i < clientInvoices.length; ++i) {
+            clientInvoices[i].print();
+        }
     }
 
     private Invoice getInvoice() {
@@ -64,44 +107,12 @@ public class InvoicesManager {
         }
     }
 
-    public void printInvoice() {
-        System.out.print("Type invoice id: ");
-        Invoice invoice = getInvoice();
-        System.out.println("Id: " + invoice.getId());
-        System.out.println("Client: ");
-        System.out.println(invoice.getClient());
-        System.out.println("Dates:");
-        System.out.println(invoice.getInvoiceDates());
-        System.out.println("Payment detail:");
-        System.out.println(invoice.getPayment());
-        System.out.println("Items:");
-        Item [] items = invoice.getItems();
-        for (int j = 0; j < items.length; j++) {
-            System.out.println(items[j]);
-            System.out.println("______________________________________________________________");
+    private boolean isEmpty() {
+        if (_invoices.getInvoices() == null) {
+            System.err.println("Invoices is empty!!! Please create invoice using \"n\" option");
+            return true;
         }
+        return false;
     }
 
-    public void printInvoices() {
-        Invoice [] invoices = _invoices.getInvoices();
-        for (int i = 0; i < invoices.length; ++i) {
-            System.out.println("Id: " + invoices[i].getId());
-            System.out.println("Client: ");
-            System.out.println(invoices[i].getClient());
-            System.out.println("Dates:");
-            System.out.println(invoices[i].getInvoiceDates());
-            System.out.println("Payment detail:");
-            System.out.println(invoices[i].getPayment());
-            System.out.println("Items:");
-            Item [] items = invoices[i].getItems();
-            for (int j = 0; j < items.length; j++) {
-                System.out.println(items[j]);
-                System.out.println("______________________________________________________________");
-            }
-        }
-    }
-
-    public void printClientInvoice() {
-        
-    }
 }

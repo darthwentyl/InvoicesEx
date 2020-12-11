@@ -22,4 +22,11 @@ public class Name {
     public String toString() {
         return new String(_firstName + " " + _lastName);
     }
+
+    public boolean isEqual(Name name) {
+        if (name.getFirstName() == _firstName && name.getLastName() == _lastName) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -29,7 +29,8 @@ public class Menu {
     public void run() {
         String option = new String();
         printOptions();
-        do {
+        while (true) {
+            System.out.println();
             System.out.println("Please type option:");
             option = _scanner.next();
             if (option.equals("n")) {
@@ -37,17 +38,20 @@ public class Menu {
             } else if (option.equals("u")) {
                 _manager.addNewPositionToExistInvoice();
             } else if (option.equals("s")) {
-                _manager.printInvoice();
+                _manager.printInvoiceId();
             } else if (option.equals("l")) {
                 _manager.printInvoices();
             } else if (option.equals("c")) {
                 _manager.printClientInvoice();
             } else if (option.equals("h")){
                 printOptions();
+            } else if (option.equals("k")) {
+                break;
             } else {
                 System.err.println("Unknow option: " + option);
                 printOptions();
             }
-        } while(!option.equals("k"));
+        }
+        System.out.println("EXIT");
     }
 }

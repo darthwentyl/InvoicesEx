@@ -49,4 +49,22 @@ public class Invoice {
     public Item [] getItems() {
         return _items.getItems();
     }
+
+    public void print() {
+        System.out.println("Id: " + _id);
+        System.out.println("Client: ");
+        System.out.println(_client);
+        System.out.println("Dates:");
+        System.out.println(_invoiceDates);
+        System.out.println("Payment detail:");
+        System.out.println(_payment);
+        System.out.println("Items:");
+        System.out.println("______________________________________________________________");
+        Item [] items = _items.getItems();
+        for (int j = 0; j < items.length; j++) {
+            System.out.println(items[j]);
+            System.out.println("______________________________________________________________");
+        }
+        System.out.println();
+    }
 }

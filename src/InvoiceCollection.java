@@ -23,4 +23,14 @@ public class InvoiceCollection {
         }
         return null;
     }
+
+    public Invoice [] getClientInvoices(Name name) {
+        InvoiceCollection clientInvoices = new InvoiceCollection();
+        for (int i = 0; i < _invoices.length; i++) {
+            if (_invoices[i].getClient().getName().isEqual(name)) {
+                clientInvoices.addInvoice(_invoices[i]);
+            }
+        }
+        return clientInvoices.getInvoices();
+    }
 }
