@@ -10,8 +10,8 @@ public class ItemCreatorImpl implements ItemCreatorIfc {
      public Item create() {
         Item item = new Item();
         item.setName(_fieldCreator.createStringField("Type product name: "));
-        item.setCount(_fieldCreator.createNumberField("Type count: "));
-        item.setCost(_fieldCreator.createNumberField("Type cost: "));
+        item.setCount(_fieldCreator.createIntField("Type count: "));
+        item.setCost(_fieldCreator.createDoubleField("Type cost: "));
         return item;
     }
 }

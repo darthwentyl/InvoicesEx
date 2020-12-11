@@ -5,8 +5,8 @@ public class Menu {
     private Scanner _scanner;
 
     Menu() {
-        _manager = new InvoicesManager();
         _scanner = new Scanner(System.in);
+        _manager = new InvoicesManager(_scanner);
     }
 
     @Override
@@ -15,6 +15,7 @@ public class Menu {
     }
 
     private void printOptions() {
+        System.out.println();
         System.out.println("Options:");
         System.out.println("\tk - finish");
         System.out.println("\tn - new invoice");

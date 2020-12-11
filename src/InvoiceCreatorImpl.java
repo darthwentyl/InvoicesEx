@@ -53,6 +53,7 @@ public class InvoiceCreatorImpl implements InvoiceCreatorIfc {
             System.out.print("Do you want to add new item [y/n]: ");
             yesNo = _scanner.next();
         } while(yesNo.equals("y"));
+        invoice.setId(InvoiceIdGenerator.generateNewId());
         return invoice;
     }
 }

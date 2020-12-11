@@ -14,4 +14,13 @@ public class InvoiceCollection {
     public Invoice [] getInvoices() {
         return _invoices;
     }
+
+    public Invoice getInvoice(int id) {
+        for (int i = 0; i < _invoices.length; i++) {
+            if (_invoices[i].getId() == id) {
+                return _invoices[i];
+            }
+        }
+        return null;
+    }
 }

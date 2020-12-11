@@ -12,7 +12,7 @@ public class FieldCreator {
         _scanner.close();
     }
 
-    public int createNumberField(String info) {
+    public int createIntField(String info) {
         System.out.print(info);
         int numberField = -1;
         do {
@@ -20,6 +20,20 @@ public class FieldCreator {
                 String str = _scanner.next();
                 numberField  = Integer.valueOf(str);
                 
+            } catch (Exception e) {
+                System.err.println("Please provide integer number!!! ");
+            }
+        } while (numberField == -1);
+        return numberField;
+    }
+
+    public double createDoubleField(String info) {
+        System.out.print(info);
+        double numberField = -1;
+        do {
+            try {
+                String str = _scanner.next();
+                numberField  = Double.valueOf(str);
             } catch (Exception e) {
                 System.err.println("Please provide number!!! ");
             }

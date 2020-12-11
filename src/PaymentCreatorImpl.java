@@ -24,9 +24,15 @@ public class PaymentCreatorImpl implements PaymentCreatorIfc {
         printPaymentType();
         int paymentType = 0;
         PaymentType ret;
+        System.out.println("Type payment type:");
         while (true) {
-            System.out.println("Type payment type:");
-            paymentType = _scanner.nextInt();
+            try {
+                String str = _scanner.next();
+                paymentType  = Integer.valueOf(str);
+            } catch (Exception e) {
+                System.err.println("Please provide number!!! ");
+                continue;
+            }
             if (paymentType < 0 || paymentType >= PaymentType.NOT_ACK.ordinal()) {
                 System.err.println("Wrong payment type: " + paymentType);
                 printPaymentType();
@@ -53,7 +59,7 @@ public class PaymentCreatorImpl implements PaymentCreatorIfc {
     }
 
     private void printPaymentType() {
-        System.out.println("\n0 - cash");
+        System.out.println("0 - cash");
         System.out.println("1 - card");
         System.out.println("2 - transfer");
     }

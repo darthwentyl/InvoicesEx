@@ -1,3 +1,4 @@
+
 public class AddressCreatorImpl implements AddressCreatorIfc {
     private FieldCreator _fieldCreator;
 
@@ -11,8 +12,8 @@ public class AddressCreatorImpl implements AddressCreatorIfc {
         address.setCountry(_fieldCreator.createStringField("Type country: "));
         address.setTown(_fieldCreator.createStringField("Type town: "));
         address.setStreet(_fieldCreator.createStringField("Type street: "));
-        address.setBuildingNumber(_fieldCreator.createNumberField("Type build number: "));
-        address.setFlatNumber(_fieldCreator.createNumberField("Type flast number: "));
+        address.setBuildingNumber(_fieldCreator.createIntField("Type build number: "));
+        address.setFlatNumber(_fieldCreator.createIntField("Type flat number: "));
         return address;
     }
 }
