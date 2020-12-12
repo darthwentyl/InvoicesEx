@@ -10,39 +10,9 @@ class NameTests {
     @BeforeEach
     void setUp() {
         _name = new Name();
+        _name.setFirstName("firstName");
+        _name.setLastName("lastName");
     }
-
-//    @Test
-//    void test_illegal_first_name_null() {
-//        assertThrows(NullPointerException.class, 
-//                () -> {
-//                    _name.setFirstName(null);
-//                });
-//    }
-//
-//    @Test
-//    void test_illegal_first_name_empty() {
-//        assertThrows(IllegalArgumentException.class, 
-//                () -> {
-//                    _name.setFirstName("");
-//                });
-//    }
-//
-//    @Test
-//    void test_illegal_last_name_null() {
-//        assertThrows(NullPointerException.class, 
-//                () -> {
-//                    _name.setLastName(null);
-//                });
-//    }
-//
-//    @Test
-//    void test_illegal_last_name_empty() {
-//        assertThrows(IllegalArgumentException.class, 
-//                () -> {
-//                    _name.setLastName("");
-//                });
-//    }
 
     @Test
     void test_get_first_name() {
@@ -54,5 +24,37 @@ class NameTests {
     void test_get_last_name() {
         _name.setLastName("last");
         assertEquals("last", _name.getLastName());
+    }
+
+    @Test
+    void test_isEqual_false() {
+        Name name = new Name();
+        name.setFirstName("abc");
+        name.setLastName("def");
+        assertFalse(_name.isEqual(name));
+    }
+
+    @Test
+    void test_isEqual_true() {
+        Name name = new Name();
+        name.setFirstName("firstName");
+        name.setLastName("lastName");
+        assertTrue(_name.isEqual(name));
+    }
+
+    @Test
+    void test_isEqual_first_true_last_false() {
+        Name name = new Name();
+        name.setFirstName("firstName");
+        name.setLastName("abc");
+        assertFalse(_name.isEqual(name));
+    }
+
+    @Test
+    void test_isEqual_first_false_last_true() {
+        Name name = new Name();
+        name.setFirstName("abc");
+        name.setLastName("lastName");
+        assertFalse(_name.isEqual(name));
     }
 }

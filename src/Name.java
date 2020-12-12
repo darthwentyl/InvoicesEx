@@ -24,7 +24,7 @@ public class Name {
     }
 
     public boolean isEqual(Name name) {
-        if (name.getFirstName() == _firstName && name.getLastName() == _lastName) {
+        if (name.getFirstName().equals(_firstName) && name.getLastName().equals(_lastName)) {
             return true;
         }
         return false;
