@@ -11,54 +11,6 @@ class AddressTests {
     void setUp() {
         _address = new Address();
     }
-    
-//    @Test
-//    void test_illegall_street_null() {
-//        assertThrows(NullPointerException.class, 
-//                () -> { 
-//                    _address.setStreet(null);
-//                });
-//    }
-//
-//    @Test
-//    void test_illegall_town_null() {
-//        assertThrows(NullPointerException.class, 
-//                () -> {
-//                    _address.setTown(null);
-//                });
-//    }
-//
-//    @Test
-//    void test_illegall_country_null() {
-//        assertThrows(NullPointerException.class, 
-//                () -> {
-//                    _address.setCountry(null);
-//                });
-//    }
-//
-//    @Test
-//    void test_illegall_street_empty() {
-//        assertThrows(IllegalArgumentException.class, 
-//                () -> {
-//                    _address.setStreet("");
-//                });
-//    }
-//
-//    @Test
-//    void test_illegall_town_empty() {
-//        assertThrows(IllegalArgumentException.class, 
-//                () -> {
-//                    _address.setTown("");
-//                });
-//    }
-//
-//    @Test
-//    void test_illegall_country_empty() {
-//        assertThrows(IllegalArgumentException.class, 
-//                () -> {
-//                    _address.setCountry("");
-//                });
-//    }
 
     @Test
     void test_get_street() {

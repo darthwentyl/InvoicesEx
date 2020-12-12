@@ -33,6 +33,7 @@ public class FieldCreator {
         do {
             try {
                 String str = _scanner.next();
+                System.out.println("str: " + str);
                 numberField  = Double.valueOf(str);
             } catch (Exception e) {
                 System.err.println("Please provide number!!! ");

@@ -7,16 +7,27 @@ class ClientTests {
     @Test
     void test_getters() {
         Client client = new Client();
-        client.setName(new Name());
-        client.setAddress(new Address());
-        
-        assertEquals(null, client.getName().getFirstName());
-        assertEquals(null, client.getName().getLastName());
-        assertEquals(null, client.getAddress().getStreet());
-        assertEquals(null, client.getAddress().getTown());
-        assertEquals(null, client.getAddress().getCountry());
-        assertEquals(0, client.getAddress().getBuildingNumber());
-        assertEquals(0, client.getAddress().getFlatNumber());
+
+        Name name = new Name();
+        name.setFirstName("firstName");
+        name.setLastName("lastName");
+        client.setName(name);
+
+        Address address = new Address();
+        address.setBuildingNumber(1);
+        address.setCountry("country");
+        address.setFlatNumber(2);
+        address.setStreet("street");
+        address.setTown("town");
+        client.setAddress(address);
+
+        assertEquals("firstName", client.getName().getFirstName());
+        assertEquals("lastName", client.getName().getLastName());
+        assertEquals("street", client.getAddress().getStreet());
+        assertEquals("town", client.getAddress().getTown());
+        assertEquals("country", client.getAddress().getCountry());
+        assertEquals(1, client.getAddress().getBuildingNumber());
+        assertEquals(2, client.getAddress().getFlatNumber());
     }
 
 }
